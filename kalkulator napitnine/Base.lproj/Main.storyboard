@@ -20,7 +20,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skupaj (z davkom):" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtc-YV-Wt1">
                                 <rect key="frame" x="16" y="81" width="152" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="gfu-eN-C9i"/>
+                                    <constraint firstAttribute="width" constant="152" id="XdL-06-oV3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -35,16 +35,22 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lMp-DN-Ylm">
                                 <rect key="frame" x="176" y="72" width="114" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="114" id="wkF-ua-GBa"/>
+                                    <constraint firstAttribute="width" constant="114" id="NwA-3p-Gzw"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minValue="0.0" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="D5q-AU-kfb">
+                                <rect key="frame" x="174" y="116" width="412" height="31"/>
+                                <connections>
+                                    <action selector="davekProcentSpremenjen:" destination="vXZ-lx-hvc" eventType="valueChanged" id="jx4-rr-hms"/>
+                                </connections>
+                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAw-Zo-1Dg">
                                 <rect key="frame" x="176" y="154" width="67" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="vLF-jb-NQc"/>
+                                    <constraint firstAttribute="width" constant="67" id="ofr-nJ-vke"/>
                                 </constraints>
                                 <state key="normal" title="Izračunaj">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,40 +59,34 @@
                                     <action selector="izracunajTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OOF-m5-YZD"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2j-dY-Nh9">
-                                <rect key="frame" x="16" y="198" width="440" height="288"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MZH-Vd-81k">
+                                <rect key="frame" x="16" y="192" width="562" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="440" id="o8z-PX-UV9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minValue="0.0" maxValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="D5q-AU-kfb">
-                                <rect key="frame" x="174" y="116" width="412" height="31"/>
                                 <connections>
-                                    <action selector="davekProcentSpremenjen:" destination="vXZ-lx-hvc" eventType="valueChanged" id="jx4-rr-hms"/>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="DfD-h3-n3U"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="CkV-CD-CYY"/>
                                 </connections>
-                            </slider>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="top" secondItem="vtc-YV-Wt1" secondAttribute="bottom" constant="18" id="03y-PP-aGc"/>
-                            <constraint firstItem="VAw-Zo-1Dg" firstAttribute="top" secondItem="D5q-AU-kfb" secondAttribute="bottom" constant="8" symbolic="YES" id="3Uc-l8-LrB"/>
-                            <constraint firstItem="P2j-dY-Nh9" firstAttribute="top" secondItem="VAw-Zo-1Dg" secondAttribute="bottom" constant="14" id="4fy-WL-4JC"/>
-                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="vtc-YV-Wt1" secondAttribute="leading" id="4gt-lQ-ulW"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="P2j-dY-Nh9" secondAttribute="bottom" constant="114" id="4tQ-Es-oM7"/>
-                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="leading" secondItem="vtc-YV-Wt1" secondAttribute="trailing" constant="8" symbolic="YES" id="HBB-XQ-hah"/>
-                            <constraint firstItem="D5q-AU-kfb" firstAttribute="top" secondItem="lMp-DN-Ylm" secondAttribute="bottom" constant="14" id="JUm-fK-Eal"/>
-                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="VAw-Zo-1Dg" secondAttribute="leading" id="OQ8-gV-K2n"/>
-                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="P2j-dY-Nh9" secondAttribute="leading" id="be7-gA-NRi"/>
-                            <constraint firstItem="D5q-AU-kfb" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="f9M-5Q-fUy"/>
-                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="jXS-Yd-vS2"/>
-                            <constraint firstItem="vtc-YV-Wt1" firstAttribute="bottom" secondItem="lMp-DN-Ylm" secondAttribute="bottom" id="oXq-Oh-6SG"/>
-                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="ab1-Ia-gcR" secondAttribute="trailing" constant="8" symbolic="YES" id="oxt-Jk-t0V"/>
-                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="lMp-DN-Ylm" secondAttribute="leading" id="pBU-nr-nTq"/>
-                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="yvD-Tp-j3r"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="ab1-Ia-gcR" secondAttribute="trailing" constant="8" symbolic="YES" id="9gK-Ck-eLZ"/>
+                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="leading" secondItem="vtc-YV-Wt1" secondAttribute="trailing" constant="8" symbolic="YES" id="Kmv-C1-YGa"/>
+                            <constraint firstItem="MZH-Vd-81k" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="L2p-Je-VEq"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Lwo-lb-ItI"/>
+                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="top" secondItem="vtc-YV-Wt1" secondAttribute="bottom" constant="18" id="NHa-zB-Qbb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MZH-Vd-81k" secondAttribute="trailing" constant="6" id="XhL-NQ-4Ss"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MZH-Vd-81k" secondAttribute="bottom" constant="108" id="YnW-wg-ZTR"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="lMp-DN-Ylm" secondAttribute="leading" id="eHd-Wy-LPZ"/>
+                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="gEE-H6-ZSV"/>
+                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="vtc-YV-Wt1" secondAttribute="leading" id="hME-OL-8Ld"/>
+                            <constraint firstItem="VAw-Zo-1Dg" firstAttribute="top" secondItem="D5q-AU-kfb" secondAttribute="bottom" constant="8" symbolic="YES" id="jgF-Kw-Gql"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="VAw-Zo-1Dg" secondAttribute="leading" id="l5E-4V-EzE"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="top" secondItem="lMp-DN-Ylm" secondAttribute="bottom" constant="14" id="wCd-sk-PLa"/>
+                            <constraint firstItem="vtc-YV-Wt1" firstAttribute="bottom" secondItem="lMp-DN-Ylm" secondAttribute="bottom" id="wsl-x6-YvX"/>
+                            <constraint firstItem="MZH-Vd-81k" firstAttribute="top" secondItem="VAw-Zo-1Dg" secondAttribute="bottom" constant="8" symbolic="YES" id="wtc-Yp-5DG"/>
+                            <constraint firstItem="MZH-Vd-81k" firstAttribute="leading" secondItem="ab1-Ia-gcR" secondAttribute="leading" id="ytM-7V-SZx"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="F5H-Tf-7Kd" appends="YES" id="Eio-r2-gSH"/>
@@ -96,8 +96,8 @@
                     <connections>
                         <outlet property="davekPctLabel" destination="ab1-Ia-gcR" id="LZa-6H-kfz"/>
                         <outlet property="davekPctSlider" destination="D5q-AU-kfb" id="saR-sF-Pw4"/>
-                        <outlet property="rezultatTextView" destination="P2j-dY-Nh9" id="fmv-fY-7Wr"/>
                         <outlet property="skupajTekstPolje" destination="lMp-DN-Ylm" id="zdn-7I-7bz"/>
+                        <outlet property="tableView" destination="MZH-Vd-81k" id="g79-fg-pRc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

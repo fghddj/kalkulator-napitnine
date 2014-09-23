@@ -8,26 +8,29 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var skupajTekstPolje: UITextField!
     @IBOutlet var davekPctSlider: UISlider!
     @IBOutlet var davekPctLabel: UILabel!
     @IBOutlet var rezultatTextView: UITextView!
+    @IBOutlet var tableView: UITableView!
     
+    let kalkulatorNapitnine = KalkulatorNapitnineModel(skupno: 33.25, davekProcent: 0.06)
+    var mozneNapitnine = Dictionary<Int, (velikostNapitnine:Double, skupno:Double)>()
+    var sortedKeys: [Int] = []
+    
+    func refreshUI() {
+        skupajTekstPolje.text = String(format: "%0.2f", kalkulatorNapitnine.skupno)
+        davekPctSlider.value = Float(kalkulatorNapitnine.davekProcent) * 100.0
+        davekPctLabel.text = "Davek (\(Int(davekPctSlider.value))%)"
+    }
+
     @IBAction func izracunajTapped(sender: AnyObject) {
         kalkulatorNapitnine.skupno = Double((skupajTekstPolje.text as NSString).doubleValue)
-        let mozneNapitnine = kalkulatorNapitnine.vrniMozneNapitnine()
-        var rezultati = ""
-        
-        var keys = Array(mozneNapitnine.keys)
-        sort(&keys)
-        for napitninaProcent in keys {
-            let napitninaVrednost = mozneNapitnine[napitninaProcent]!
-            let lepaVrednostNapitnine = String(format:"%.2f", napitninaVrednost)
-            rezultati += "\(napitninaProcent)%: \(lepaVrednostNapitnine)\n"
-        }
-        rezultatTextView.text = rezultati
+        mozneNapitnine = kalkulatorNapitnine.vrniMozneNapitnine()
+        sortedKeys = sorted(Array(mozneNapitnine.keys))
+        tableView.reloadData()
     }
     @IBAction func davekProcentSpremenjen(sender: AnyObject) {
         kalkulatorNapitnine.davekProcent = Double(davekPctSlider.value) / 100.0
@@ -48,15 +51,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    let kalkulatorNapitnine = KalkulatorNapitnineModel(skupno: 33.25, davekProcent: 0.06)
-    
-    func refreshUI() {
-        skupajTekstPolje.text = String(format: "%0.2f", kalkulatorNapitnine.skupno)
-        davekPctSlider.value = Float(kalkulatorNapitnine.davekProcent) * 100.0
-        davekPctLabel.text = "Davek (\(Int(davekPctSlider.value))%)"
-        rezultatTextView.text = ""
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sortedKeys.count
     }
-
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.Value2, reuseIdentifier: nil)
+        let procentNapitnine = sortedKeys[indexPath.row]
+        let velikostNapitnine = mozneNapitnine[procentNapitnine]!.velikostNapitnine
+        let skupno = mozneNapitnine[procentNapitnine]!.skupno
+        
+        cell.textLabel!.text = "\(procentNapitnine)%:"
+        cell.detailTextLabel!.text = String(format: "Napitnina: $%0.2f, Skupno: $%0.2f", velikostNapitnine, skupno)
+        return cell
+    }
+    
 
 }
 
