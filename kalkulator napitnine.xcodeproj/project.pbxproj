@@ -13,6 +13,7 @@
 		EC53848419D0465400CDBF72 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC53848319D0465400CDBF72 /* Images.xcassets */; };
 		EC53848719D0465400CDBF72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC53848519D0465400CDBF72 /* LaunchScreen.xib */; };
 		EC53849319D0465400CDBF72 /* kalkulator_napitnineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53849219D0465400CDBF72 /* kalkulator_napitnineTests.swift */; };
+		EC53849D19D0495C00CDBF72 /* KalkulatorNapitnineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC53849C19D0495C00CDBF72 /* KalkulatorNapitnineModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		EC53848C19D0465400CDBF72 /* kalkulator napitnineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kalkulator napitnineTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC53849119D0465400CDBF72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC53849219D0465400CDBF72 /* kalkulator_napitnineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kalkulator_napitnineTests.swift; sourceTree = "<group>"; };
+		EC53849C19D0495C00CDBF72 /* KalkulatorNapitnineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KalkulatorNapitnineModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				EC53847C19D0465400CDBF72 /* AppDelegate.swift */,
+				EC53849C19D0495C00CDBF72 /* KalkulatorNapitnineModel.swift */,
 				EC53847E19D0465400CDBF72 /* ViewController.swift */,
 				EC53848019D0465400CDBF72 /* Main.storyboard */,
 				EC53848319D0465400CDBF72 /* Images.xcassets */,
@@ -214,6 +217,7 @@
 			files = (
 				EC53847F19D0465400CDBF72 /* ViewController.swift in Sources */,
 				EC53847D19D0465400CDBF72 /* AppDelegate.swift in Sources */,
+				EC53849D19D0495C00CDBF72 /* KalkulatorNapitnineModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +409,7 @@
 				EC53849819D0465400CDBF72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC53849919D0465400CDBF72 /* Build configuration list for PBXNativeTarget "kalkulator napitnineTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				EC53849B19D0465400CDBF72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
