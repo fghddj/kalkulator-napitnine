@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jzp-fD-SZn">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tip Calculator-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="kalkulator_napitnine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,116 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skupaj (z davkom):" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtc-YV-Wt1">
+                                <rect key="frame" x="16" y="81" width="152" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="gfu-eN-C9i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Davek (0%):" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab1-Ia-gcR">
+                                <rect key="frame" x="16" y="120" width="152" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="D5q-AU-kfb">
+                                <rect key="frame" x="174" y="116" width="412" height="31"/>
+                                <connections>
+                                    <action selector="davekProcentSpremenjen:" destination="vXZ-lx-hvc" eventType="valueChanged" id="jx4-rr-hms"/>
+                                </connections>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAw-Zo-1Dg">
+                                <rect key="frame" x="176" y="154" width="67" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="vLF-jb-NQc"/>
+                                </constraints>
+                                <state key="normal" title="Izračunaj">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="izracunajTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OOF-m5-YZD"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2j-dY-Nh9">
+                                <rect key="frame" x="16" y="198" width="440" height="288"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="440" id="o8z-PX-UV9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lMp-DN-Ylm">
+                                <rect key="frame" x="176" y="72" width="114" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="wkF-ua-GBa"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="top" secondItem="vtc-YV-Wt1" secondAttribute="bottom" constant="18" id="03y-PP-aGc"/>
+                            <constraint firstItem="VAw-Zo-1Dg" firstAttribute="top" secondItem="D5q-AU-kfb" secondAttribute="bottom" constant="8" symbolic="YES" id="3Uc-l8-LrB"/>
+                            <constraint firstItem="P2j-dY-Nh9" firstAttribute="top" secondItem="VAw-Zo-1Dg" secondAttribute="bottom" constant="14" id="4fy-WL-4JC"/>
+                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="vtc-YV-Wt1" secondAttribute="leading" id="4gt-lQ-ulW"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="P2j-dY-Nh9" secondAttribute="bottom" constant="114" id="4tQ-Es-oM7"/>
+                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="leading" secondItem="vtc-YV-Wt1" secondAttribute="trailing" constant="8" symbolic="YES" id="HBB-XQ-hah"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="top" secondItem="lMp-DN-Ylm" secondAttribute="bottom" constant="14" id="JUm-fK-Eal"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="VAw-Zo-1Dg" secondAttribute="leading" id="OQ8-gV-K2n"/>
+                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="P2j-dY-Nh9" secondAttribute="leading" id="be7-gA-NRi"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="f9M-5Q-fUy"/>
+                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="jXS-Yd-vS2"/>
+                            <constraint firstItem="vtc-YV-Wt1" firstAttribute="bottom" secondItem="lMp-DN-Ylm" secondAttribute="bottom" id="oXq-Oh-6SG"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="ab1-Ia-gcR" secondAttribute="trailing" constant="8" symbolic="YES" id="oxt-Jk-t0V"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="lMp-DN-Ylm" secondAttribute="leading" id="pBU-nr-nTq"/>
+                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="yvD-Tp-j3r"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="F5H-Tf-7Kd" appends="YES" id="Eio-r2-gSH"/>
+                        </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="5Ct-ei-3bk"/>
+                    <connections>
+                        <outlet property="davekPctLabel" destination="ab1-Ia-gcR" id="LZa-6H-kfz"/>
+                        <outlet property="davekPctSlider" destination="D5q-AU-kfb" id="saR-sF-Pw4"/>
+                        <outlet property="rezultatTextView" destination="P2j-dY-Nh9" id="fmv-fY-7Wr"/>
+                        <outlet property="skupajTekstPolje" destination="lMp-DN-Ylm" id="zdn-7I-7bz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="F5H-Tf-7Kd">
+                    <connections>
+                        <action selector="viewTapped:" destination="vXZ-lx-hvc" id="seE-aT-UqH"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="1149" y="401"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="w4T-4T-yJu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jzp-fD-SZn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BkQ-px-lzZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="s1u-L5-U2m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zb1-ck-l9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="337" y="1062"/>
         </scene>
     </scenes>
 </document>
