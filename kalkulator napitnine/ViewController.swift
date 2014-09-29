@@ -20,12 +20,6 @@ class ViewController: UIViewController {
         let mozneNapitnine = kalkulatorNapitnine.vrniMozneNapitnine()
         var rezultati = ""
         
-        /*
-        for (napitninaProcent, napitninaVrednost) in mozneNapitnine {
-        rezultati += "\(napitninaProcent)%: \(napitninaVrednost)\n"
-        }
-        */
-        
         var keys = Array(mozneNapitnine.keys)
         sort(&keys)
         for napitninaProcent in keys {
