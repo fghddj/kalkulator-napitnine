@@ -13,10 +13,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet var skupajTekstPolje: UITextField!
     @IBOutlet var davekPctSlider: UISlider!
     @IBOutlet var davekPctLabel: UILabel!
-    @IBOutlet var rezultatTextView: UITextView!
     @IBOutlet var tableView: UITableView!
     
-    let kalkulatorNapitnine = KalkulatorNapitnineModel(skupno: 33.25, davekProcent: 0.06)
+    let kalkulatorNapitnine = KalkulatorNapitnineModel(skupno: 17.25, davekProcent: 0.22)
     var mozneNapitnine = Dictionary<Int, (velikostNapitnine:Double, skupno:Double)>()
     var sortedKeys: [Int] = []
     
@@ -56,7 +55,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Value2, reuseIdentifier: nil)
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
         let procentNapitnine = sortedKeys[indexPath.row]
         let velikostNapitnine = mozneNapitnine[procentNapitnine]!.velikostNapitnine
         let skupno = mozneNapitnine[procentNapitnine]!.skupno
