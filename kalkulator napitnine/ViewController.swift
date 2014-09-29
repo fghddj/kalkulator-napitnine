@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         let skupno = mozneNapitnine[procentNapitnine]!.skupno
         
         cell.textLabel!.text = "\(procentNapitnine)%:"
-        cell.detailTextLabel!.text = String(format: "Napitnina: $%0.2f, Skupno: $%0.2f", velikostNapitnine, skupno)
+        cell.detailTextLabel!.text = String(format: "Napitnina: %0.2f €, Skupno: %0.2f €", velikostNapitnine, skupno)
         return cell
     }
     
