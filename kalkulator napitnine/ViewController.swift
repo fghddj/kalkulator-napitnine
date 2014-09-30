@@ -55,7 +55,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)!
         let procentNapitnine = sortedKeys[indexPath.row]
         let velikostNapitnine = mozneNapitnine[procentNapitnine]!.velikostNapitnine
         let skupno = mozneNapitnine[procentNapitnine]!.skupno
