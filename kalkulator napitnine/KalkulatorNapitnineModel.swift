@@ -12,6 +12,7 @@ import Foundation
 class KalkulatorNapitnineModel {
     var skupno = 0.0
     var davekProcent = 0.0
+    var napitnina = 0.0
     var delnaVsota: Double {
         get {
             return skupno / (davekProcent + 1)
@@ -31,7 +32,7 @@ class KalkulatorNapitnineModel {
     
     func vrniMozneNapitnine() -> [Int: (velikostNapitnine:Double, skupno:Double)] {
         
-        let mozneNapitnineInf = [0.15, 0.18, 0.20]
+        let mozneNapitnineInf = [(napitnina - 0.03), (napitnina), (napitnina + 0.03)]
         
         var retval = Dictionary<Int, (velikostNapitnine:Double, skupno:Double)>()
         for mozneNapitnine in mozneNapitnineInf {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jzp-fD-SZn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jzp-fD-SZn">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +20,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skupaj (z davkom):" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtc-YV-Wt1">
                                 <rect key="frame" x="16" y="81" width="152" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="4we-PF-emx"/>
+                                    <constraint firstAttribute="width" constant="152" id="oJO-Nb-UPG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -44,11 +44,18 @@
                                     <action selector="davekProcentSpremenjen:" destination="vXZ-lx-hvc" eventType="valueChanged" id="jx4-rr-hms"/>
                                 </connections>
                             </slider>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MZH-Vd-81k">
+                                <rect key="frame" x="16" y="280" width="568" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="DfD-h3-n3U"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="CkV-CD-CYY"/>
+                                </connections>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAw-Zo-1Dg">
-                                <rect key="frame" x="250" y="154" width="100" height="30"/>
+                                <rect key="frame" x="250" y="242" width="100" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="kPF-KO-Ils"/>
-                                    <constraint firstAttribute="height" constant="30" id="rdK-Ly-sqn"/>
+                                    <constraint firstAttribute="width" constant="100" id="Cer-Sn-xas"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Izračunaj">
@@ -58,35 +65,46 @@
                                     <action selector="izracunajTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OOF-m5-YZD"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MZH-Vd-81k">
-                                <rect key="frame" x="16" y="192" width="568" height="388"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Napitnina (0%):" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hid-6P-FME">
+                                <rect key="frame" x="16" y="163" width="152" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="18" minValue="0.0" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="jXS-AD-3P9">
+                                <rect key="frame" x="174" y="154" width="412" height="31"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="DfD-h3-n3U"/>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="CkV-CD-CYY"/>
+                                    <action selector="napitninaProcentSpremenjen:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Pcx-a2-yCw"/>
                                 </connections>
-                            </tableView>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="leading" secondItem="vtc-YV-Wt1" secondAttribute="trailing" constant="8" symbolic="YES" id="Bxc-B5-9l2"/>
-                            <constraint firstItem="D5q-AU-kfb" firstAttribute="top" secondItem="lMp-DN-Ylm" secondAttribute="bottom" constant="14" id="Cv0-md-8yb"/>
-                            <constraint firstItem="D5q-AU-kfb" firstAttribute="trailing" secondItem="MZH-Vd-81k" secondAttribute="trailing" id="Edg-0b-SPe"/>
-                            <constraint firstItem="VAw-Zo-1Dg" firstAttribute="centerX" secondItem="MZH-Vd-81k" secondAttribute="centerX" id="GKq-o2-Jf7"/>
-                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="leading" secondItem="D5q-AU-kfb" secondAttribute="leading" id="HdV-8s-3Ew"/>
-                            <constraint firstItem="MZH-Vd-81k" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="NLZ-qe-yj3"/>
-                            <constraint firstItem="VAw-Zo-1Dg" firstAttribute="top" secondItem="D5q-AU-kfb" secondAttribute="bottom" constant="8" symbolic="YES" id="P7e-Lm-Vct"/>
-                            <constraint firstItem="vtc-YV-Wt1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="TF4-d9-uRR"/>
-                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="Uxn-Hl-JKO"/>
-                            <constraint firstItem="vtc-YV-Wt1" firstAttribute="bottom" secondItem="lMp-DN-Ylm" secondAttribute="bottom" id="WMJ-xa-oNT"/>
-                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="trailing" secondItem="D5q-AU-kfb" secondAttribute="trailing" id="X0G-7m-YjN"/>
-                            <constraint firstAttribute="bottom" secondItem="MZH-Vd-81k" secondAttribute="bottom" constant="20" symbolic="YES" id="gAq-AK-95G"/>
-                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="ab1-Ia-gcR" secondAttribute="trailing" constant="8" symbolic="YES" id="hA0-o9-j7Q"/>
-                            <constraint firstItem="vtc-YV-Wt1" firstAttribute="leading" secondItem="ab1-Ia-gcR" secondAttribute="leading" id="lXa-37-5q7"/>
-                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="MZH-Vd-81k" secondAttribute="leading" id="mgs-VJ-TUw"/>
-                            <constraint firstItem="MZH-Vd-81k" firstAttribute="top" secondItem="VAw-Zo-1Dg" secondAttribute="bottom" constant="8" symbolic="YES" id="oSE-ui-8Hf"/>
-                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="top" secondItem="vtc-YV-Wt1" secondAttribute="bottom" constant="18" id="tt7-tQ-sbE"/>
+                            <constraint firstAttribute="bottom" secondItem="MZH-Vd-81k" secondAttribute="bottom" constant="20" symbolic="YES" id="7eC-MT-QDV"/>
+                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="trailing" secondItem="D5q-AU-kfb" secondAttribute="trailing" id="7gB-uN-9dM"/>
+                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="9i3-0X-OYO"/>
+                            <constraint firstItem="jXS-AD-3P9" firstAttribute="top" secondItem="D5q-AU-kfb" secondAttribute="bottom" constant="8" symbolic="YES" id="AA0-1Y-STH"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="top" secondItem="lMp-DN-Ylm" secondAttribute="bottom" constant="14" id="Fx9-0T-6Z9"/>
+                            <constraint firstItem="MZH-Vd-81k" firstAttribute="top" secondItem="Hid-6P-FME" secondAttribute="bottom" constant="96" id="HDp-w0-xre"/>
+                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="vtc-YV-Wt1" secondAttribute="leading" id="LNm-z2-fFO"/>
+                            <constraint firstItem="jXS-AD-3P9" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="LlQ-TR-zvB"/>
+                            <constraint firstItem="MZH-Vd-81k" firstAttribute="leading" secondItem="Hid-6P-FME" secondAttribute="leading" id="UWG-Wx-6nr"/>
+                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="Hid-6P-FME" secondAttribute="leading" id="Urk-dA-usN"/>
+                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="top" secondItem="vtc-YV-Wt1" secondAttribute="bottom" constant="18" id="Zkz-5f-M1r"/>
+                            <constraint firstItem="VAw-Zo-1Dg" firstAttribute="centerX" secondItem="MZH-Vd-81k" secondAttribute="centerX" id="ZyB-C1-EfR"/>
+                            <constraint firstItem="D5q-AU-kfb" firstAttribute="leading" secondItem="ab1-Ia-gcR" secondAttribute="trailing" constant="8" symbolic="YES" id="beX-yh-hHO"/>
+                            <constraint firstItem="MZH-Vd-81k" firstAttribute="top" secondItem="VAw-Zo-1Dg" secondAttribute="bottom" constant="8" symbolic="YES" id="dch-oQ-1Nn"/>
+                            <constraint firstItem="jXS-AD-3P9" firstAttribute="trailing" secondItem="MZH-Vd-81k" secondAttribute="trailing" id="kHy-z3-B7M"/>
+                            <constraint firstItem="VAw-Zo-1Dg" firstAttribute="top" secondItem="jXS-AD-3P9" secondAttribute="bottom" constant="58" id="sZN-nz-PRC"/>
+                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="bottom" secondItem="vtc-YV-Wt1" secondAttribute="bottom" id="tbS-H1-aWe"/>
+                            <constraint firstItem="jXS-AD-3P9" firstAttribute="leading" secondItem="Hid-6P-FME" secondAttribute="trailing" constant="8" symbolic="YES" id="tun-QH-epy"/>
+                            <constraint firstItem="Hid-6P-FME" firstAttribute="bottom" secondItem="jXS-AD-3P9" secondAttribute="bottom" id="v5R-9L-UPU"/>
+                            <constraint firstItem="jXS-AD-3P9" firstAttribute="leading" secondItem="D5q-AU-kfb" secondAttribute="leading" id="xDS-8s-lCa"/>
+                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="leading" secondItem="vtc-YV-Wt1" secondAttribute="trailing" constant="8" symbolic="YES" id="xUb-26-1cw"/>
+                            <constraint firstItem="jXS-AD-3P9" firstAttribute="trailing" secondItem="D5q-AU-kfb" secondAttribute="trailing" id="xVl-dq-TIi"/>
+                            <constraint firstItem="lMp-DN-Ylm" firstAttribute="leading" secondItem="D5q-AU-kfb" secondAttribute="leading" id="yVb-PF-GTh"/>
+                            <constraint firstItem="ab1-Ia-gcR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="zkk-It-Mse"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="F5H-Tf-7Kd" appends="YES" id="Eio-r2-gSH"/>
@@ -96,6 +114,8 @@
                     <connections>
                         <outlet property="davekPctLabel" destination="ab1-Ia-gcR" id="LZa-6H-kfz"/>
                         <outlet property="davekPctSlider" destination="D5q-AU-kfb" id="saR-sF-Pw4"/>
+                        <outlet property="napitninaPctLabel" destination="Hid-6P-FME" id="57G-3I-yVV"/>
+                        <outlet property="napitninaPctSlider" destination="jXS-AD-3P9" id="T5o-Gq-Iuf"/>
                         <outlet property="skupajTekstPolje" destination="lMp-DN-Ylm" id="zdn-7I-7bz"/>
                         <outlet property="tableView" destination="MZH-Vd-81k" id="g79-fg-pRc"/>
                     </connections>

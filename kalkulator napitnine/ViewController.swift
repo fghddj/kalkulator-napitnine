@@ -14,6 +14,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet var davekPctSlider: UISlider!
     @IBOutlet var davekPctLabel: UILabel!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var napitninaPctSlider: UISlider!
+    @IBOutlet var napitninaPctLabel: UILabel!
+
     
     let kalkulatorNapitnine = KalkulatorNapitnineModel(skupno: 17.25, davekProcent: 0.22)
     var mozneNapitnine = Dictionary<Int, (velikostNapitnine:Double, skupno:Double)>()
@@ -23,6 +26,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         skupajTekstPolje.text = String(format: "%0.2f", kalkulatorNapitnine.skupno)
         davekPctSlider.value = Float(kalkulatorNapitnine.davekProcent) * 100.0
         davekPctLabel.text = "Davek (\(Int(davekPctSlider.value))%)"
+        napitninaPctSlider.value = Float(kalkulatorNapitnine.napitnina) * 100.0
+        napitninaPctLabel.text = "Napitnina (\(Int(napitninaPctSlider.value))%)"
     }
 
     @IBAction func izracunajTapped(sender: AnyObject) {
@@ -35,6 +40,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         kalkulatorNapitnine.davekProcent = Double(davekPctSlider.value) / 100.0
         refreshUI()
     }
+    
+    @IBAction func napitninaProcentSpremenjen(sender: AnyObject) {
+        kalkulatorNapitnine.napitnina = Double(napitninaPctSlider.value) / 100.0
+        refreshUI()
+    }
+    
+    
     @IBAction func viewTapped(sender: AnyObject) {
         skupajTekstPolje.resignFirstResponder()
     }
