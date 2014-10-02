@@ -32,13 +32,26 @@ class KalkulatorNapitnineModel {
     
     func vrniMozneNapitnine() -> [Int: (velikostNapitnine:Double, skupno:Double)] {
         
-        let mozneNapitnineInf = [(napitnina - 0.03), (napitnina), (napitnina + 0.03)]
-        
-        var retval = Dictionary<Int, (velikostNapitnine:Double, skupno:Double)>()
-        for mozneNapitnine in mozneNapitnineInf {
-            let intPct = Int(mozneNapitnine*100)
-            retval[intPct] = kalkulirajNapitninoSProcentom(mozneNapitnine)
+        if napitnina < 0.04 {
+            let mozneNapitnineInf = [(napitnina), (napitnina + 0.03)]
+            
+            var retval = Dictionary<Int, (velikostNapitnine:Double, skupno:Double)>()
+            for mozneNapitnine in mozneNapitnineInf {
+                let intPct = Int(mozneNapitnine*100)
+                retval[intPct] = kalkulirajNapitninoSProcentom(mozneNapitnine)
+            }
+            return retval
+        } else {
+            
+            let mozneNapitnineInf = [(napitnina - 0.03), (napitnina), (napitnina + 0.03)]
+            
+            var retval = Dictionary<Int, (velikostNapitnine:Double, skupno:Double)>()
+            for mozneNapitnine in mozneNapitnineInf {
+                let intPct = Int(mozneNapitnine*100)
+                retval[intPct] = kalkulirajNapitninoSProcentom(mozneNapitnine)
+            }
+            return retval
         }
-        return retval
+        
     }
 }
