@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     var sortedKeys: [Int] = []
     
     func refreshUI() {
-        skupajTekstPolje.text = String(format: "%0.2f", kalkulatorNapitnine.skupno)
+        // skupajTekstPolje.text = String(format: "%0.2f", kalkulatorNapitnine.skupno)
         davekPctSlider.value = Float(kalkulatorNapitnine.davekProcent) * 100.0
         davekPctLabel.text = "Davek (\(Int(davekPctSlider.value))%)"
         napitninaPctSlider.value = Float(kalkulatorNapitnine.napitnina) * 100.0
